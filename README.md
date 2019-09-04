@@ -18,8 +18,11 @@ Note: have tested on Ubuntu 18.04 with MariaDB 10.3
 
 ## Create a backup user
 
-    GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT ON *.* TO 'backup'@'localhost' identified by 'YourPassword';
+    GRANT PROCESS, RELOAD, LOCK TABLES, REPLICATION CLIENT ON *.* TO 'backup'@'localhost' identified by 'YourPassword';
     FLUSH PRIVILEGES;
+
+## Grant read access to mysql files
+    usermod -aG mysql backup
 
 ## Usage
 
